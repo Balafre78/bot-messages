@@ -25,20 +25,3 @@ client.login(process.env.TOKEN)
 client.on("ready", () => {
     bot.user.setGame("Bot d'interface !");
 })
-
-client.on('message', message => {
-
-    var PREFIX = ('*')
-    
-    function send(message, description) {
-        message.channel.send({embed: {
-            color: 0xffc33b,
-            description: ':scroll: ' + description
-        }});
-    }
-     
-    if(msg === PREFIX + 'INFO') {
-        send(message, 'Test Heroku !' )
-    }
-
-});
