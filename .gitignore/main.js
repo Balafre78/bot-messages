@@ -6,6 +6,7 @@ const config = require('./config.json')
 
 // Create Discord Bot Client
 var client = new Client()
+
 // inject config into client instance object
 client.config = config
 
@@ -20,3 +21,24 @@ client.on('ready', () => {
 
 // Logging in Discord Bot at the API
 client.login(process.env.TOKEN)
+
+client.on("ready", () => {
+    bot.user.setGame("Bot d'interface !");
+})
+
+client.on('message', message => {
+
+    var PREFIX = ('*')
+    
+    function send(message, description) {
+        message.channel.send({embed: {
+            color: 0xffc33b,
+            description: ':scroll: ' + description
+        }});
+    }
+     
+    if(msg === PREFIX + 'INFO') {
+        send(message, 'Test Heroku !' )
+    }
+
+});
